@@ -1,0 +1,16 @@
+service: notes-app-api
+
+# Create an optimized package for our functions
+package:
+  individually: true
+
+plugins:
+  - serverless-bundle # Package our functions with Webpack and to write to our lambda functions using a flavor of JS.
+  - serverless-offline # this plugin is helpful for local development
+  - serverless-dotenv-plugin # Load .env as environment variables
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: prod
+  region: us-east-1
